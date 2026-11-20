@@ -1,7 +1,7 @@
 # SENTINELA no Render - Guia simples, sem cartão, sem Paris, sem códigos
 
 O que é isto?
-É a SENTINELA a viver num computador remoto grátis no Render. Ela não constrói. Ela audita.
+É a SENTINELA do vegadlyraOS a viver num computador remoto grátis no Render. Ela não constrói. Ela audita TODO o vegadlyraOS, não só o ATLAS.
 Quando o Coder te entrega algo, tu colas aqui e ela faz relatório.
 
 O que precisas?
