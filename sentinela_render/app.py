@@ -167,8 +167,24 @@ def auditar_local(pedido, entrega):
 def index():
     return render_template_string(HTML, relatorio=None)
 
-@app.route("/auditar", methods=["POST"])
+AUDITAR_GET_HTML = r"""<!doctype html>
+<html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SENTINELA do vegadlyraOS - Resultados</title>
+<style>body{font-family:system-ui,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px;background:#f6f5f0;color:#222}h1{font-size:28px} .card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin:16px 0} button{background:#111;color:white;padding:12px 18px;border:0;border-radius:8px;font-size:16px;cursor:pointer} .muted{color:#666;font-size:14px}</style>
+<meta http-equiv="refresh" content="4;url=https://sentinela-4h0f.onrender.com/">
+</head><body>
+<div class="card"><h1>🛡 SENTINELA do vegadlyraOS</h1>
+<p><b>Este endereco e so para resultados.</b></p>
+<p class="muted">Vais ser redireccionado para o inicio em 4 segundos.</p>
+<button onclick="window.location.href='https://sentinela-4h0f.onrender.com/'">Ir para inicio</button></div>
+<script>setTimeout(function(){window.location.href='https://sentinela-4h0f.onrender.com/';},4000);</script>
+</body></html>
+"""
+
+@app.route("/auditar", methods=["GET", "POST"])
 def auditar():
+    if request.method == "GET":
+        return render_template_string(AUDITAR_GET_HTML)
     pedido = request.form.get("area", "vegadlyraOS") + " | " + request.form.get("pedido", "")
     entrega = request.form.get("entrega", "")
     rel = auditar_local(pedido, entrega)
